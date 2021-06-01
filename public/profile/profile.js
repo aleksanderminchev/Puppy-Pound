@@ -1,4 +1,4 @@
-const profileInfo="http://localhost:8080/profile/:loggedInProfile";
+const profileInfo="/profile/:loggedInProfile";
         fetch(profileInfo)
         .then(response => response.json())
         .then( (result) => {

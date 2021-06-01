@@ -1,32 +1,106 @@
-{
-    "Room":{
-            "name":"room1",
-            "user1":"g.michael@gmail.com",
-            "user2":"kris.j@gmail.com",
-            "messages":[
-                {
-                    "username":"g.michael@gmail.com",
-                    "text":"Hello!",
-                    "date":"28.05.2020 18:00"
-                },
-                {
-                    "username":"g.michael@gmail.com",
-                    "text":"Hello!",
-                    "date":"28.05.2020 18:01"
-                },
-                {
-                    "username":"kris.j@gmail.com",
-                    "text":"Yes,Hello!",
-                    "date":"28.05.2020 18:01"
-                }
-            ]
-    },"Room2":{
-    "name":"room1",
-    "user1":{"id":"5_George Michael","name":"George Michael"},
-    "user2":{"id":"6_Kris Junior","name":"Kris Junior"},
-    "messages":[{"username":"5_George_Michael","text":"Hello!","date":"28.05.2020 18:00"},
-        {"username":"5_George_Michael","text":"Hello!","date":"28.05.2020 18:01"},
-        {"username":"6_Kris_Junior","text":"Yes,Hello!","date":"28.05.2020 18:01"}
-        ]}
-    
-}
+[{
+  "_id": {
+    "$oid": "60b4d6417a383f3f74f3b07d"
+  },
+  "user1": {
+    "id": "1_George Michael",
+    "name": "George Michael"
+  },
+  "user2": {
+    "id": "2_Alexander Minchev",
+    "name": "Alexander Minchev"
+  },
+  "messages": [
+    {
+      "username": "1_George Michael",
+      "text": "Hello!",
+      "date": {
+        "$date": "2021-05-24T16:36:55Z"
+      }
+    },
+    {
+      "username": "1_George Michael",
+      "text": "Hello!",
+      "date": {
+        "$date": "2021-05-24T16:36:55Z"
+      }
+    },
+    {
+      "username": "2_Alexander Minchev",
+      "text": "Yes,Hello!",
+      "date": {
+        "$date": "2021-05-24T16:36:55Z"
+      }
+    },
+    {
+      "username": "2_Alexander Minchev",
+      "text": "Holltew",
+      "date": {
+        "$date": "2021-05-31T16:49:32.285Z"
+      }
+    },
+    {
+      "username": "2_Alexander Minchev",
+      "text": "TEASD",
+      "date": {
+        "$date": "2021-05-31T16:49:35.876Z"
+      }
+    },
+    {
+      "username": "2_Alexander Minchev",
+      "text": "AASS YDAS",
+      "date": {
+        "$date": "2021-05-31T16:56:00.708Z"
+      }
+    },
+    {
+      "username": "2_Alexander Minchev",
+      "text": "BABA",
+      "date": {
+        "$date": "2021-05-31T20:34:12.553Z"
+      }
+    },
+    {
+      "username": "2_Alexander Minchev",
+      "text": "vewvw",
+      "date": {
+        "$date": "2021-06-01T00:12:34.509Z"
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "60b5fb189230822b643f100d"
+  },
+  "user1": {
+    "id": "1_George Michael",
+    "name": "George Michael"
+  },
+  "user2": {
+    "id": "3_Kris Hensen",
+    "name": "Kris Hensen"
+  },
+  "messages": [
+    {
+      "username": "3_Kris Hensen",
+      "text": "vwefw",
+      "date": {
+        "$date": "2021-06-01T09:17:30.214Z"
+      }
+    },
+    {
+      "username": "3_Kris Hensen",
+      "text": "vwvwe",
+      "date": {
+        "$date": "2021-06-01T09:17:31.844Z"
+      }
+    },
+    {
+      "username": "3_Kris Hensen",
+      "text": "fwef",
+      "date": {
+        "$date": "2021-06-01T09:17:34.029Z"
+      }
+    }
+  ]
+}]

@@ -21,7 +21,7 @@ async function openForm() {
   $(document).ready(function(){
     $("#chathistory").hide();
   });
-const urlCorrect="http://localhost:8080/:correct";
+const urlCorrect="/:correct";
         fetch(urlCorrect).then(response => response.json())
         .then( (result) => {
             //console.log('success:', result)
@@ -35,7 +35,7 @@ const urlCorrect="http://localhost:8080/:correct";
             $("#chathistory").show();
         }).catch(error => console.log('error:', error));
 
- const urlIncorrect="http://localhost:8080/wrong/:incorrect";
+ const urlIncorrect="/wrong/:incorrect";
         fetch(urlIncorrect)
         .then(response => response.json())
         .then( (result) => {

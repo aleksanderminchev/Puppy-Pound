@@ -1,6 +1,6 @@
 const express=require("express");
 const app=express();
-
+require('dotenv').config()
 //for session
 const session = require('express-session');
 //store: new MongoStore(options)
@@ -29,15 +29,16 @@ const profile=fs.readFileSync(__dirname+"/public/profile/profile.html","utf-8");
 const chat=fs.readFileSync(__dirname+"/public/chat/chat.html","utf-8");
 const chatHistory=fs.readFileSync(__dirname+"/public/chatHistory/chatHistory.html","utf-8");
 
-
 //connections for the database
 const MongoClient = require("mongodb").MongoClient;
-const url = "mongodb://localhost:27017";
+const password=process.env.DB_PASSWORD;
+const user=process.env.DB_USER;
+const url = "mongodb+srv://"+user+":"+password+"@puppyshelter.xfqtn.mongodb.net/puppypound?retryWrites=true&w=majority";
 const dbName = "puppypound";
 
 
 const PORT =process.env.PORT
-server.listen( PORT ||8080,(err)=>{
+server.listen( PORT || 8080,(err)=>{
     if(err){
         console.log(err);
     }

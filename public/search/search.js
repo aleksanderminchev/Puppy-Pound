@@ -1,4 +1,4 @@
-const zip="http://localhost:8080/search/:zip";
+const zip="/search/:zip";
 fetch(zip).then(response => response.json())
 .then( (result) => {
   if(!result){
