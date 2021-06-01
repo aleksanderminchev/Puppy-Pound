@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="../adoption/adoption.css">
+<div class="form-registration">
+<h1>Adoption</h1>
+<form method="POST" action="/adoption" enctype="multipart/form-data">
+   
+    <label for="name">Name</label>
+    <input type="text" name="name" placeholder="Enter name" required>
+    <br/>
+    <label for="breed">Breed</label>
+    <input type="text" name="breed"placeholder="Enter breed" required>
+    <br/>
+    <label>Size</label>
+    <input  type="text"name="size" placeholder="Enter size" required>
+    <br/>
+    <label>Sex</label>
+    <input type="text" name="sex" placeholder="Enter sex" required>
+    <br/>
+    <label>Age</label>
+    <input type="number" name="age" placeholder="Enter age">
+    <br/>
+    <label>Color</label>
+    <input type="text"  name="color"placeholder="Enter color">
+    <br/>
+    <label for="image">Image</label>
+    <input type="file" name="image" placeholder="Upload Image">
+    <br/>
+    <button type="submit">Create Adoption Listing</button>
+</form>
+</div>

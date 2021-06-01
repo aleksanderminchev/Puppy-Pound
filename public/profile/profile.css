@@ -1,0 +1,31 @@
+#profileInfo{
+    text-align: left;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#rightSide{
+    overflow: visible;
+    float:left;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 20%;
+}
+.line{
+    background-color: wheat;
+    width: 80%;
+}
+li{
+    list-style-type: none;
+}
+.form-profile input[type=email], .form-profile  input[type=password], .form-profile  input[type=text],.form-profile  input[type=number]{
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+}
+.text-right{
+    margin-left:1px;
+}

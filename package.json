@@ -1,0 +1,23 @@
+{
+    "name": "ExamProject",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "cross-env PORT=8080 NODE_ENV=production nodemon app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bootstrap": "5.0.1",
+        "cross-env": "7.0.3",
+        "express": "4.17.1",
+        "express-session": "1.17.1",
+        "html-escaper": "^3.0.3",
+        "mongodb": "^3.6.8",
+        "multer": "1.4.2",
+        "socket.io": "^4.0.1"
+    }
+}

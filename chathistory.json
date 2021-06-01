@@ -1,0 +1,32 @@
+{
+    "Room":{
+            "name":"room1",
+            "user1":"g.michael@gmail.com",
+            "user2":"kris.j@gmail.com",
+            "messages":[
+                {
+                    "username":"g.michael@gmail.com",
+                    "text":"Hello!",
+                    "date":"28.05.2020 18:00"
+                },
+                {
+                    "username":"g.michael@gmail.com",
+                    "text":"Hello!",
+                    "date":"28.05.2020 18:01"
+                },
+                {
+                    "username":"kris.j@gmail.com",
+                    "text":"Yes,Hello!",
+                    "date":"28.05.2020 18:01"
+                }
+            ]
+    },"Room2":{
+    "name":"room1",
+    "user1":{"id":"5_George Michael","name":"George Michael"},
+    "user2":{"id":"6_Kris Junior","name":"Kris Junior"},
+    "messages":[{"username":"5_George_Michael","text":"Hello!","date":"28.05.2020 18:00"},
+        {"username":"5_George_Michael","text":"Hello!","date":"28.05.2020 18:01"},
+        {"username":"6_Kris_Junior","text":"Yes,Hello!","date":"28.05.2020 18:01"}
+        ]}
+    
+}

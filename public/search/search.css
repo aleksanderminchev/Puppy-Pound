@@ -1,0 +1,23 @@
+.search{
+    text-align: center;
+    color: whitesmoke;
+}
+.form input{
+width: 30%;
+}
+#test{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    margin-right: 50%;
+    text-align: left;
+}
+ul{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    list-style-type: none;
+}
+.img{
+    width: 50%;
+    height: 50%;
+}
