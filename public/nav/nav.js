@@ -10,6 +10,7 @@ async function openForm() {
  };
         
 $(document).ready(function(){
+  console.log("REACHED FIRST");
   $("#adoption_post").hide();
   $("#profile").hide();
   $("#logout").hide();
@@ -18,6 +19,7 @@ $(document).ready(function(){
 const urlCorrect="/correct";
         fetch(urlCorrect).then(response => response.json())
         .then( (result) => {
+          console.log("REACHED SECND");
           if(result.success){
             $("#adoption_post").show();
             $("#profile").show();
