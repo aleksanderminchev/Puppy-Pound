@@ -2,6 +2,7 @@ const profileInfo="/profile/loggedInProfile";
 fetch(profileInfo).then(response => response.json())
   .then( (result) => {
     //inputs and form
+    console.log(result)
     const div=document.getElementById('profileInfo');
     const form=document.createElement("form");
     form.method="POST";
