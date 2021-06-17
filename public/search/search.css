@@ -16,8 +16,8 @@ width: 30%;
   
 }
 ul{
-    margin: 2%;
-    width: 50%;
+    margin: 5%;
+    width: 90%;
     font-size: 1rem;
     border: double 5px rgb(255, 195, 30);
     line-height: 1.5rem;
@@ -26,4 +26,5 @@ ul{
 .img{
     width: 50%;
     height: 50%;
+    padding-bottom: 8px;
 }
