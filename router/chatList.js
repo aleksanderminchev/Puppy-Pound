@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const MongoClient = require("mongodb").MongoClient;
-const url = "mongodb://localhost:27017";
+const password=process.env.DB_PASSWORD;
+const user=process.env.DB_USER;
+const url = "mongodb+srv://"+user+":"+password+"@puppyshelter.xfqtn.mongodb.net/puppypound?retryWrites=true&w=majority";
 const dbName = "puppypound";
 //this router is used to load the list of chats on to the page
 router.get("/api/listings",(req,res)=>{
