@@ -20,6 +20,7 @@ router.get("/api/listings",(req,res)=>{
           console.log(err);
           res.redirect("/failPage")
         }
+          client.close();
           res.send(data);
       });
     });
@@ -42,6 +43,7 @@ router.get("/api/adoptions",(req,res)=>{
           console.log(err)
           res.redirect("/failPage");
         }
+        client.close();
         res.send(data);
        })
     })

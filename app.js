@@ -6,7 +6,12 @@ require('dotenv').config();
 //for session
 const session = require('express-session');
 //store: new MongoStore(options)
-app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+app.use(session({
+    secret: 'ssshhhhh',
+    saveUninitialized:false,
+    resave: true,
+    cookie:{secure:false}
+}));
 //for chat portion
 const history=require("./router/chatList");
 const server = require("http").createServer(app);
@@ -79,9 +84,11 @@ io.on('connect', (socket) =>{
                      tempChat.map((message)=>{
                         chatHistory.updateOne({'user1.id':userListerId,'user2.id':userAdopterId},{$push:{messages:message}},(data)=>{ 
                             console.log("inserted");
+                            client.close();
                         })
                     })
-                }   
+                }
+                   
             })
         }
     });
@@ -175,8 +182,8 @@ app.get("/messages",(req,res)=>{
                     const nameAdopter=userAdopterId.substr(2,userListerId.length);
                     chatHistory.insertOne({user1:{id:userListerId,name:nameLister},user2:{id:userAdopterId,name:nameAdopter},messages:[]});
                 }
+                client.close();
             })
-     
         })
     }else{
         res.redirect("/failPage");
@@ -200,10 +207,14 @@ app.post("/search",(req,res)=>{
                 for(let i=0;i<result.length;i++){
                    searchZip.push(result[i])
                 }
-            res.redirect("/search");
+            
             }
+            client.close();
         })
+        
+        res.redirect("/search");
     })
+    //redirect but close cursor before 
 });
 //get the results for looking at a certain zip sent to the client
 app.get("/search/zip",(req,res)=>{
@@ -259,6 +270,7 @@ app.get("/adoption/delete/:id",(req,res)=>{
                     console.log(err);
                     res.redirect("/failPage");
                 }
+                client.close();
             });
         });
         //removes the images on deletion 
@@ -294,11 +306,12 @@ app.post("/updateProfile",(req,res)=>{
                 address:req.body.address
             }},(err,data)=>{
                 console.log("Success");
+                client.close();
             });
-           
+            
         });
-        //updates the session properties instead of logging us out 
-        req.session.loggedIn=false
+        //updates the session properties and logging us out 
+        req.session.loggedIn=false;
         res.redirect("/");
     }else{
         res.redirect("/failPage")
@@ -350,6 +363,7 @@ app.post("/adoption",uploadDest.single("image"),(req,res)=>{
                             res.redirect("/failPage");
                         }
                     });
+                client.close();
         });
         });
         res.redirect("/profile")
@@ -383,6 +397,7 @@ app.get("/profile/loggedInProfile",(req,res)=>{
                     res.redirect("/failPage");
                 }
                 req.session.owner=result;
+                client.close();
                 res.json(req.session.owner);
             })
             
@@ -415,6 +430,7 @@ app.post("/register",(req,res)=>{
                 ZIP:req.body.zip,address:req.body.address,
                 adoptionsList:[]
             });
+            client.close();
      });
      
     });
@@ -458,14 +474,15 @@ app.post("/api/logIn",(req,res,next)=>{
                 db.close;
                 req.session.loggedIn=true;
                 req.session.owner=result;
+                req.session.owner.password=null;
                 res.redirect("/")
             }else{  
                 req.session.loggedIn=false;
                 res.redirect("/failPage");
             }
-           res.end();
+            client.close();
         })
-        
+      
     });
     
 });
