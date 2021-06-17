@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "60ae7244cb956f52a065ea32"
+  },
+  "ownerId": 1,
+  "name": "George Michael",
+  "email": "g.michael@gmail.com",
+  "password": "1234",
+  "individualOrPound": "Individual",
+  "ZIP": "2300",
+  "address": "Osterbro 25",
+  "adoptionsList": []
+},{
+  "_id": {
+    "$oid": "60b4d60632d75c3c38f5b969"
+  },
+  "ownerId": 2,
+  "name": "Alexander Minchev",
+  "email": "aleks.min1@mail.com",
+  "password": "password",
+  "individualOrPound": "Individual",
+  "ZIP": "2400",
+  "address": "Valby 56",
+  "adoptionsList": []
+},{
+  "_id": {
+    "$oid": "60b54a41e5a213574041fbdf"
+  },
+  "ownerId": 3,
+  "name": "Kris Hensen",
+  "email": "kris@mail.com",
+  "password": "567",
+  "individualOrPound": "Individual",
+  "ZIP": "2600",
+  "address": "Amagade 23",
+  "adoptionsList": []
+}]

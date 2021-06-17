@@ -1,8 +1,10 @@
 <link rel="stylesheet" href="../adoption/adoption.css">
 <div class="form-registration">
-<h1>Adoption</h1>
+
 <form method="POST" action="/adoption" enctype="multipart/form-data">
-   
+    <h1 id="headline">Adoption</h1>
+
+    <br/>
     <label for="name">Name</label>
     <input type="text" name="name" placeholder="Enter name" required>
     <br/>
@@ -22,7 +24,7 @@
     <input type="text"  name="color"placeholder="Enter color">
     <br/>
     <label for="image">Image</label>
-    <input type="file" name="image" placeholder="Upload Image">
+    <input type="file" name="image" placeholder="Upload PNG Image">
     <br/>
     <button type="submit">Create Adoption Listing</button>
 </form>

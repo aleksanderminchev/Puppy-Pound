@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../nav/nav.css">
+    <link rel="stylesheet" href="../footer/footer.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../nav/nav.js"></script>
+    <title>Puppy Pound</title>
+</head>
+<body>
+    <nav class="navbar nav-pills nav-fill navbar-dark bg-dark ">
+            <a  href="/"><img id="logo" src="../homepage/logo.png"></a>
+            <a class=" nav-item nav-link" href="/">About Adoption</a>
+            <a class=" nav-item nav-link" href="/search">Search for a pet</a>
+            <a id="adoption_post" class=" nav-item nav-link" href="/adoption">Post about adoption</a>
+            <a id="chathistory" class=" nav-item nav-link" href="/chats">Chat History</a>
+            <a class=" nav-item nav-link" id="register"href="/register">Register</a>
+            <a class="open-button nav-item nav-link" id="loginButton" onclick="openForm()">Login</a>
+            <a class=" nav-item nav-link" id="profile" href="/profile"> Profile</a>
+            <button type="submit" class="nav-item nav-link" id="logout" onclick="logOut()">Logout</button>
+<div class="form-popup" id="myForm">
+  <form method="POST" action="/api/logIn" class="form-container" >
+    <h1>Login</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="email" name="email" placeholder="Enter Email"  required>
+    
+    <label for="password"><b>Password</b></label>
+    <input type="password"  name="password" placeholder="Enter Password"  required>
+
+    <button type="submit" class="btn" id="login" >Login</button>
+
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>  
+</nav>
+<div id="maincontent">

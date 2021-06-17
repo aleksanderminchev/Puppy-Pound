@@ -1,4 +1,9 @@
+body{
+    height: fit-content;
+    overflow:auto;
+}
 #profileInfo{
+    position: relative;
     text-align: left;
     display: inline-block;
     display: flex;
@@ -6,11 +11,17 @@
     flex-wrap: wrap;
 }
 #rightSide{
+    font-size: 20px;
+    position: relative;
     overflow: visible;
-    float:left;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+#rightSide li{
+    margin-left: 30%;
+}
+#rightSide button{
     margin-left: 20%;
 }
 .line{

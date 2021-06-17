@@ -1,48 +1,64 @@
-async function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  };
+const images=["home1.png","home2.png","home3.png"]
+let index=0;
+
+$(function(){
+        $("#page1").hide();
+        $("#page2").hide();
+    $("#left").on('click',function(){
+        $("#page"+index).hide();
+        $("#maincontent").fadeOut('slow'| 500,function(){
+            $("#maincontent").css('background-image',"url(../homepage/"+images[index]+")");
+            
+        });
+        if(index === 0){
+            index=2 ;
+        }else{
+            index -= 1;
+        }
+        $("#page"+index).show();
+        $("#maincontent").fadeIn('slow'| 500,function(){
+            $("#maincontent").css('background-image',"url(../homepage/"+images[index]+")");
+            
+        })
+       
+
+    })
+    $("#right").on('click',function(){
+        $("#page"+index).hide();
+        $("#maincontent").fadeOut('slow'| 500,function(){
+            $("#maincontent").css('background-image',"url(../homepage/"+images[index]+")");
+           
+        })
+        if(index === 2){
+            index=0;
+           
+        }else{
+            index += 1 ;
+        }
+        $("#page"+index).show();
+        $("#maincontent").fadeIn('slow'| 500 ,function(){
+            $("#maincontent").css('background-image',"url(../homepage/"+images[index]+")");
+            
+        });
+    })
+   
+});
+setInterval(function(){
+    $("#page"+index).hide();
+    index +=1;
+    if(index > 2){
+        index=0;
+    }
   
-  async function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  };
- async function logOut(){
-    location.assign("/logout");
- };
+    $("#maincontent").fadeOut('slow'| 500,function(){
+        $("#maincontent").css('background-image',"url(../homepage/"+images[index]+")");
+    });
+    $("#page"+index).show();
+    $("#maincontent").fadeIn('slow'| 500 ,function(){
+        $("#maincontent").css('background-image',"url(../homepage/"+images[index]+")");
 
-  $(document).ready(function(){
-    $("#adoption_post").hide();
-  });
-  $(document).ready(function(){
-    $("#profile").hide();
-  });
-  $(document).ready(function(){
-    $("#logout").hide();
-  });
-  $(document).ready(function(){
-    $("#chathistory").hide();
-  });
-const urlCorrect="/:correct";
-        fetch(urlCorrect).then(response => response.json())
-        .then( (result) => {
-            //console.log('success:', result)
-            //  let div=document.getElementById('test');
-           // div.innerHTML=`title: ${result.email}<br/>message: ${result.message}`;
-            $("#adoption_post").show();
-            $("#profile").show();
-            $("#logout").show();
-            $("#register").hide();
-            $("#loginButton").hide();
-            $("#chathistory").show();
-        }).catch(error => console.log('error:', error));
+        
+    });
+},7000);
 
- const urlIncorrect="/wrong/:incorrect";
-        fetch(urlIncorrect)
-        .then(response => response.json())
-        .then( (result) => {
-            //console.log('success:', result)
-             let div=document.getElementById('test');
-            div.innerHTML=`${result.wrong}`;
-            const a="<p>HELLO</p>"
-           div.appendChild(a);
-         }).catch(error => console.log('error:', error));
 

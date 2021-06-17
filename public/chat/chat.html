@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="../chat/chat.css">
 <script src="/socket.io/socket.io.js"></script>
-<div class="chat">
-            <form id="form-messages">
-              <input id="input"class="mytext" type="text" name="message"placeholder="Type a message"/>
+<div id="chat"class="chat">
+            <form id="form-messages" >
+              <input id="input"class="mytext" type="text" name="message"placeholder="Type a message" required/>
               <button type="submit">Send message</button>
             </form>
             <ul id="messages"></ul>

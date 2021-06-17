@@ -1,0 +1,8 @@
+#footer-about {
+    margin:0;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
+    background-color: black;
+}

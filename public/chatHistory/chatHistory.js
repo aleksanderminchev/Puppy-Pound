@@ -1,7 +1,4 @@
-let currentLoggedInUser;
-fetch("/profile/:loggedInProfile").then(response => response.json()) .then( (result) => {
-    currentLoggedInUser=result.ownerId+"_"+result.name;
-  });
+
 const ulListings=document.getElementById("listings");
 fetch("/api/listings").then(response => response.json()).then((result) => {
     
@@ -21,6 +18,7 @@ const ulAdoptions=document.getElementById('adoptions');
 fetch("/api/adoptions").then(response => response.json()).then((result) => {
     if(result){
     result.map((discussions)=>{
+        console.log(discussions)
         const user1=discussions.user1;
         const user2=discussions.user2;
         const li=document.createElement('li');

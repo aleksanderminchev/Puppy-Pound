@@ -1,3 +1,18 @@
 .form-registration{
-    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    margin-left: 40%;
+    align-self: flex-start;
+}
+.form-registration label{
+    padding: 10px 0;
+    font-weight: 600;
+}
+input{
+    width: 100%;
+    -webkit-appearance: none;
+    max-width: 400px;
+    padding:1.0em;
+    font-size: 0.9em; 
 }
