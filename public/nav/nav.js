@@ -8,13 +8,13 @@ async function openForm() {
  async function logOut(){
     location.assign("/logout");
  };
-
-  $(document).ready(function(){
-    $("#adoption_post").hide();
-    $("#profile").hide();
-    $("#logout").hide();
-    $("#chathistory").hide();
-  });
+        
+$(document).ready(function(){
+  $("#adoption_post").hide();
+  $("#profile").hide();
+  $("#logout").hide();
+  $("#chathistory").hide();
+});
 const urlCorrect="/correct";
         fetch(urlCorrect).then(response => response.json())
         .then( (result) => {

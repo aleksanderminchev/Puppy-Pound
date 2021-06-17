@@ -434,8 +434,6 @@ app.get("/logout",(req,res)=>{
 app.get("/correct",(req,res,next)=>{
     if(req.session.loggedIn){
         res.json({success:true});  
-    }else{
-        res.json({success:false});
     }
 });
 //homepage
