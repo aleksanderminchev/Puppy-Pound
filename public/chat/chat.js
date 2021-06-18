@@ -20,29 +20,31 @@ const input=document.getElementById("input");
 
 (async function (){
  
-    await fetch("/profile/loggedInProfile").then(response => response.json()) .then( (result) => {
-      currentLoggedInUser=result.ownerId+"_"+result.name;
-    });
-      fetch("/messages").then(response => response.json()) .then( (result) => {
-        $(document).scrollTop($(document).height()); 
-        result.map((text)=>{
-          let username=text.username;
-          const message=document.createElement('li');
-          message.innerHTML=text.text;
-          const date= document.createElement('li');
-          const convert=new Date(text.date);
-          date.innerHTML=convert.getDate()+"."+convert.getMonth()+"."+convert.getFullYear()+" "+convert.getHours()+":"+convert.getMinutes();
-          date.classList.add('date');
-          if( currentLoggedInUser === username){
-            message.classList.add('sent');
-          }else{
-            message.classList.add('received');
-          }
-          message.appendChild(date);
-          messages.appendChild(message);
-          $("#chat")[0].scrollTop =  $("#chat")[0].scrollHeight+100;
-        })
-    })
+  const user =await fetch("/profile/loggedInProfile");
+  const resultUser= await user.json();
+  currentLoggedInUser=resultUser.ownerId+"_"+resultUser.name;
+
+  const responce= await fetch("/messages");
+  const result = await responce.json();
+  $(document).scrollTop($(document).height()); 
+  result.map((text)=>{
+    let username=text.username;
+    const message=document.createElement('li');
+    message.innerHTML=text.text;
+    const date= document.createElement('li');
+    const convert=new Date(text.date);
+    date.innerHTML=convert.getDate()+"."+convert.getMonth()+"."+convert.getFullYear()+" "+convert.getHours()+":"+convert.getMinutes();
+    date.classList.add('date');
+    if( currentLoggedInUser === username){
+      message.classList.add('sent');
+    }else{
+      message.classList.add('received');
+    }
+    message.appendChild(date);
+    messages.appendChild(message);
+    $("#chat")[0].scrollTop =  $("#chat")[0].scrollHeight+100;
+  })
+    
   })()
 
 form.addEventListener('submit',(e)=>{

@@ -18,8 +18,8 @@ $(document).ready(function(){
 });
 const urlCorrect="/correct";
 (async function (){
- await fetch(urlCorrect).then(response => response.json())
-  .then( (result) => {
+const responce= await fetch(urlCorrect)
+const result = await responce.json();
     // console.log("REACHED SECND");
     if(result.success){
       $("#adoption_post").show();
@@ -36,7 +36,5 @@ const urlCorrect="/correct";
       $("#loginButton").show();
       $("#chathistory").hide();
     }
-
-  }).catch(error => console.log('error:', error));
 })();
 
