@@ -11,25 +11,23 @@
             ulListings.appendChild(li);
     
         })
-    
-})()
-(async function(){
-    const ulAdoptions=document.getElementById('adoptions');
-    const responce = await fetch("/api/adoptions")
-    const result = await responce.json()
-        if(result){
-        result.map((discussions)=>{
-            console.log(discussions)
-            const user1=discussions.user1;
+        const ulAdoptions=document.getElementById('adoptions');
+        const responceAdoptions = await fetch("/api/adoptions")
+        const resultAdoptions = await responceAdoptions.json()
+            if(resultAdoptions){
+            resultAdoptions.map((discussions)=>{
+                console.log(discussions)
+                const user1=discussions.user1;
+                const li=document.createElement('li');
+               
+                li.innerHTML="<a href='/chat/adoption/"+user1.id.substring(0,1)+"/"+user1.name+"' class='listing buttons'><button id='chatButton'>"+user1.name+"</button></a>"
+                ulAdoptions.appendChild(li);
+            })
+        }else{
             const li=document.createElement('li');
-           
-            li.innerHTML="<a href='/chat/adoption/"+user1.id.substring(0,1)+"/"+user1.name+"' class='listing buttons'><button id='chatButton'>"+user1.name+"</button></a>"
+            li.innerHTML="<strong>No adoption chats</strong>";
             ulAdoptions.appendChild(li);
-        })
-    }else{
-        const li=document.createElement('li');
-        li.innerHTML="<strong>No adoption chats</strong>";
-        ulAdoptions.appendChild(li);
-    }
+        }
     
 })()
+

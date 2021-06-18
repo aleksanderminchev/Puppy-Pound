@@ -9,18 +9,13 @@ async function openForm() {
     location.assign("/logout");
  };
          
-$(document).ready(function(){
-  // console.log("REACHED FIRST");
-  $("#adoption_post").hide();
-  $("#profile").hide();
-  $("#logout").hide();
-  $("#chathistory").hide();
-});
+
 const urlCorrect="/correct";
 (async function (){
-const responce= await fetch(urlCorrect)
-const result = await responce.json();
-    // console.log("REACHED SECND");
+
+ const responce = await fetch(urlCorrect)
+ const result= await responce.json()
+     console.log("REACHED SECND");
     if(result.success){
       $("#adoption_post").show();
       $("#profile").show();

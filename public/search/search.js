@@ -1,6 +1,6 @@
 const zip="/search/zip";
 (async function(){
-  const response=await fetch(zip);
+  const response= await fetch(zip);
   const result= await response.json();
   console.log(result)
   if(!result){
