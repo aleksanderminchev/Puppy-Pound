@@ -53,7 +53,7 @@ server.listen( PORT || 8080,(err)=>{
 });
 //temp chat holds our conversation untill everyone leaves the room and it is destroyed
 
-let tempChat=[];
+
 //searchZip hold the zip in which we are looking for dogs
 let searchZip;
 //these IDs are what are used for room creation
@@ -63,33 +63,10 @@ let userAdopterId='lobby';
 io.on('connect', (socket) =>{
     const room=userListerId+"_"+userAdopterId
     socket.join(room);
-    tempChat=[]
     //console.log(io.sockets.adapter.rooms);
     io.of("/").adapter.on("delete-room", (rooms) => {
         if(rooms === room){
             console.log(`room ${rooms} destroyed`);
-            //put temp chat push here
-            MongoClient.connect(url, { useUnifiedTopology: true }, (error, client) => {
-                if (error) {
-                console.log(error);
-                res.redirect("/failPage");
-                }
-      
-                const db = client.db(dbName);
-                const chatHistory= db.collection("chatHistory");
-                if(tempChat.length !== 0){
-                    // console.log(userListerId);
-                    // console.log(userAdopterId);
-                    //input every individual message within the database
-                     tempChat.map((message)=>{
-                        chatHistory.updateOne({'user1.id':userListerId,'user2.id':userAdopterId},{$push:{messages:message}},(data)=>{ 
-                            console.log("inserted");
-                            client.close();
-                        })
-                    })
-                }
-                   
-            })
         }
     });
     socket.on('disconnect', () => {
@@ -98,12 +75,32 @@ io.on('connect', (socket) =>{
     socket.on('chat message',(msg)=>{
         console.log(msg);
         //receive chat message from client
-        tempChat.push({username:msg.userId,text:msg.input,date:new Date()});
+        message={username:msg.userId,text:msg.input,date:new Date()};
+        //put temp chat push here
+        MongoClient.connect(url, { useUnifiedTopology: true }, (error, client) => {
+            if (error) {
+            console.log(error);
+            res.redirect("/failPage");
+            }
+    
+            const db = client.db(dbName);
+            const chatHistory= db.collection("chatHistory");
+                // console.log(userListerId);
+                // console.log(userAdopterId);
+                //input every individual message within the database
+                   
+            chatHistory.updateOne({'user1.id':userListerId,'user2.id':userAdopterId},{$push:{messages:message}},(data)=>{ 
+                console.log("inserted");
+                client.close();
+            })
+                
+        })        
         // send to other clients in the room
         socket.to(room).emit('chat message', msg.input);
     })
       
 });
+
   //make a router which checks  
 app.get("/chat/:adoptingOrListing/:idUser/:nameUser",(req,res)=>{
     //on disconnect from all send the temp chat to the db ok

@@ -36,6 +36,7 @@ ul{
     overflow:visible;
 }
 .received{
+    margin-bottom: 2%;
     height:fit-content;
     width: 30%;
     text-align: left;
