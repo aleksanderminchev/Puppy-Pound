@@ -7,7 +7,7 @@ require('dotenv').config();
 const session = require('express-session');
 //store: new MongoStore(options)
 app.use(session({
-    secret: 'ssshhhhh',
+    secret: process.env.SECRET,
     saveUninitialized:false,
     resave: true,
     cookie:{secure:false}
