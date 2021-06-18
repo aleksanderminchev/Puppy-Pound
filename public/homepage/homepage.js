@@ -7,7 +7,7 @@ $(function(){
     $("#left").on('click',function(){
         $("#page"+index).hide();
         $("#maincontent").fadeOut('slow'| 500,function(){
-            $("#maincontent").css('background-image',"url(../homepage/"+images[index]+")");
+            $("#maincontent").css('background-image',"url(/homepage/"+images[index]+")");
             
         });
         if(index === 0){
@@ -17,7 +17,7 @@ $(function(){
         }
         $("#page"+index).show();
         $("#maincontent").fadeIn('slow'| 500,function(){
-            $("#maincontent").css('background-image',"url(../homepage/"+images[index]+")");
+            $("#maincontent").css('background-image',"url(/homepage/"+images[index]+")");
             
         })
        

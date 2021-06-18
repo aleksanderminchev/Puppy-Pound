@@ -363,7 +363,6 @@ app.post("/adoption",uploadDest.single("image"),(req,res)=>{
                             res.redirect("/failPage");
                         }
                     });
-                client.close();
         });
         });
         res.redirect("/profile")
